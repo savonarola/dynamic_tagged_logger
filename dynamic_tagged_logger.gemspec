@@ -3,7 +3,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["av"]
   gem.email         = ["av@fun-box.ru"]
   gem.description   = %q{Simple tagged logger extention to provide dynamically calculated tags for each log line}
-  gem.homepage      = ""
+  gem.summary       = gem.description
+  gem.homepage      = "https://github.com/savonarola/dynamic_tagged_logger"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
