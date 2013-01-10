@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "dynamic_tagged_logger"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.1"
+  gem.version       = "3.2.11"
 
-  gem.add_runtime_dependency("rails", "~> 3.2")
+  gem.add_runtime_dependency("rails", "~> 3.2.11")
 end

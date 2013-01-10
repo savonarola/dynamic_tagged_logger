@@ -25,13 +25,14 @@ class DynamicTaggedLogger < Rails::Railtie
   initializer "dynamic_tagged_logger.uuid_in_call_app" do
     Rails::Rack::Logger.class_eval do
       protected
-      def call_app(env)
-        request = ActionDispatch::Request.new(env)
-        path = request.filtered_path
-        Rails.logger.info "\n\nStarted #{request.request_method} \"#{path}\" with uuid [#{request.uuid}] for #{request.ip} at #{Time.now.to_default_s}"
-        @app.call(env)
-      ensure
-        ActiveSupport::LogSubscriber.flush_all!
+
+      def started_request_message(request)
+        'Started %s "%s" with uuid [%s] for %s at %s' % [
+          request.request_method,
+          request.filtered_path,
+          request.uuid,
+          request.ip,
+          Time.now.to_default_s ]
       end
     end
   end
